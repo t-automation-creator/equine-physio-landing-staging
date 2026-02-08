@@ -775,6 +775,115 @@
             line-height: 1.6;
         }
 
+        /* Founders Section */
+        .founders-section {
+            padding: 6rem 2rem;
+            background: var(--gray-50);
+            text-align: center;
+        }
+
+        .founders-section h2 {
+            color: var(--gray-900);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .founders-section > p {
+            color: var(--muted);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .founders-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .founder-card {
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+            text-align: center;
+        }
+
+        .founder-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            margin: 0 auto 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .founder-avatar svg {
+            width: 48px;
+            height: 48px;
+            stroke: white;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .founder-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .founder-card .founder-role {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .founder-card .founder-bio {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .founder-instagram {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .founder-instagram:hover {
+            color: var(--primary-dark);
+        }
+
+        .founder-instagram svg {
+            width: 16px;
+            height: 16px;
+        }
+
         /* Challenges Section */
         .challenges-section {
             padding: 6rem 2rem;
@@ -1775,6 +1884,24 @@
                 border-radius: 0.875rem;
             }
 
+            /* Founders section mobile */
+            .founders-section {
+                padding: 3rem 1rem;
+            }
+
+            .founders-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .founders-grid {
+                gap: 2rem;
+            }
+
+            .founder-avatar {
+                width: 100px;
+                height: 100px;
+            }
+
             /* Challenges section mobile */
             .challenges-section {
                 padding: 3rem 1rem;
@@ -2056,6 +2183,47 @@
         </div>
     </section>
 
+    <!-- Meet the Founders Section -->
+    <section class="founders-section animate-on-scroll">
+        <h2>Meet the Founders</h2>
+        <p>Built by people who understand equine practice from the inside out.</p>
+        <div class="founders-grid">
+            <div class="founder-card">
+                <div class="founder-avatar">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Annie McAndrew</h3>
+                <p class="founder-role">CPO</p>
+                <a href="#" class="founder-instagram" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    Instagram
+                </a>
+            </div>
+            <div class="founder-card">
+                <div class="founder-avatar">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Taylor</h3>
+                <p class="founder-role">CEO</p>
+                <a href="#" class="founder-instagram" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    Instagram
+                </a>
+            </div>
+            <div class="founder-card">
+                <div class="founder-avatar">
+                    <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h3>Nick Rees</h3>
+                <p class="founder-role">CTO</p>
+                <a href="#" class="founder-instagram" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Challenges Section -->
     <section class="challenges-section">
         <h2>Help us tackle the biggest challenges for Equine Practitioners</h2>
@@ -2234,7 +2402,7 @@
         <h2>Ready to Simplify Your Practice?</h2>
         <p>What features would you like to see? What would make your life easier? Help shape the future of equine practice software.</p>
         <a href="https://app.equinepractitioner.app/signup" class="btn-primary">
-            <span>Reserve Your Spot</span>
+            <span>Sign Up Today</span>
             <span>→</span>
         </a>
     </section>
