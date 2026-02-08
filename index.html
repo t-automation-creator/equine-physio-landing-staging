@@ -2016,7 +2016,7 @@
             <span class="logo-prefix">Brought to you by</span>
             <img src="lumineer-logo.png" alt="Lumineer Digital" class="logo-img">
         </a>
-        <a href="#" class="nav-cta" onclick="openModal()">Sign Up For Free</a>
+        <a href="https://app.equinepractitioner.app/signup" class="nav-cta">Sign Up For Free</a>
     </nav>
 
     <!-- Hero Section -->
@@ -2026,10 +2026,10 @@
                 <h1 class="flipped-hero"><span class="hero-line-1">The All-In-One</span><span class="hero-line-2">App For <span class="equine-word">Equine</span></span><span class="hero-line-3" id="practitioner-flip-text">Physiotherapists</span></h1>
                 <p class="hero-subtext-flipped">Stop juggling appointments, invoicing, and client records. Focus on what matters.</p>
                 <div class="hero-buttons">
-                    <button class="btn-primary pulse" onclick="openModal()">
+                    <a href="https://app.equinepractitioner.app/signup" class="btn-primary pulse">
                         <span>Start 7 Day Trial</span>
                         <span>→</span>
-                    </button>
+                    </a>
                     <a href="#features" class="btn-secondary">
                         <span>See Features</span>
                     </a>
@@ -2068,7 +2068,7 @@
             <div class="challenge-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> No mobile-friendly tools</div>
             <div class="challenge-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Difficulty reporting</div>
         </div>
-        <p class="challenges-cta">Can you relate to any of these? <a onclick="openModal()">Get involved →</a></p>
+        <p class="challenges-cta">Can you relate to any of these? <a href="https://app.equinepractitioner.app/signup">Get involved →</a></p>
     </section>
 
     <!-- Problem Section -->
@@ -2233,10 +2233,10 @@
     <section class="cta-section">
         <h2>Ready to Simplify Your Practice?</h2>
         <p>What features would you like to see? What would make your life easier? Help shape the future of equine practice software.</p>
-        <button class="btn-primary" onclick="openModal()">
+        <a href="https://app.equinepractitioner.app/signup" class="btn-primary">
             <span>Reserve Your Spot</span>
             <span>→</span>
-        </button>
+        </a>
     </section>
 
     <!-- Footer -->
@@ -2244,151 +2244,8 @@
         <p>© 2026 Equine Practitioner. All rights reserved. Made with care for equine practitioners.</p>
     </footer>
 
-    <!-- Modal -->
-    <div class="modal-overlay" id="modal">
-        <div class="modal">
-            <button class="modal-close" onclick="closeModal()">×</button>
-            <h3>Sign Up Today</h3>
-            <p>What features would you like to see? What would make your life easier?</p>
-            <form id="beta-form" action="https://formspree.io/f/mqepbpvv" method="POST">
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="e.g., Sarah Jones">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address *</label>
-                    <input type="email" id="email" name="email" required placeholder="you@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="practice">Practice Name (Optional)</label>
-                    <input type="text" id="practice" name="practice" placeholder="e.g., Sarah's Equine Practice">
-                </div>
-                <div class="form-group">
-                    <label>What challenges do you face?</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="stress_areas" value="notes">
-                            <span class="chip-content">
-                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                                Client Notes
-                            </span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="stress_areas" value="booking">
-                            <span class="chip-content">
-                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                                Scheduling
-                            </span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="stress_areas" value="invoicing">
-                            <span class="chip-content">
-                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                                Invoicing
-                            </span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="stress_areas" value="multi_horse">
-                            <span class="chip-content">
-                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                                Multi-Horse
-                            </span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="stress_areas" value="yard_visits">
-                            <span class="chip-content">
-                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                                Yard Visits
-                            </span>
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="stress_areas" value="reporting">
-                            <span class="chip-content">
-                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
-                                Reporting
-                            </span>
-                        </label>
-                    </div>
-                    <div class="other-input-group">
-                        <label class="other-label">Other (please specify)</label>
-                        <input type="text" name="other_challenge" class="other-input" placeholder="e.g., Client communication, Travel planning...">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="source">How did you hear about us?</label>
-                    <select id="source" name="source">
-                        <option value="">Select an option</option>
-                        <option value="social">Social Media</option>
-                        <option value="colleague">Colleague Referral</option>
-                        <option value="search">Google Search</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-primary">Create my account</button>
-            </form>
-        </div>
-    </div>
 
     <script>
-        function openModal() {
-            document.getElementById('modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Handle form submission with Formspree
-        document.getElementById('beta-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const submitBtn = form.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            
-            // Show loading state
-            submitBtn.innerHTML = 'Sending...';
-            submitBtn.disabled = true;
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-                
-                const modal = document.querySelector('.modal');
-                
-                if (response.ok) {
-                    // Increment spots counter
-                    incrementSpotsCount();
-                    // Redirect to app signup page
-                    window.location.href = 'https://app.equinepractitioner.app/signup';
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                alert('Oops! There was a problem submitting your form. Please try again.');
-            }
-        });
-
-        // Close modal on overlay click
-        document.getElementById('modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-
-        // Close modal on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
-        });
-
         // Scroll animations using Intersection Observer
         const observerOptions = {
             root: null,
@@ -2463,57 +2320,6 @@
         setTimeout(() => {
             setInterval(slideToPractitioner, 2500);
         }, 1000);
-
-        // Spots counter functionality
-        const SPOTS_TOTAL = 20;
-        const SPOTS_STORAGE_KEY = 'equine_spots_claimed';
-        const SPOTS_API_URL = 'https://api.jsonbin.io/v3/b/679781a0e41b4d34e47a7c8f';
-        const SPOTS_API_KEY = '$2a$10$QJ8Zj8Q8Q8Q8Q8Q8Q8Q8Qe';
-
-        // Get spots count from localStorage (fallback) or use default
-        function getLocalSpotsCount() {
-            const stored = localStorage.getItem(SPOTS_STORAGE_KEY);
-            return stored ? parseInt(stored, 10) : 12; // Default to 12 claimed
-        }
-
-        // Update the progress bar UI
-        function updateSpotsUI(claimed) {
-            const remaining = Math.max(0, SPOTS_TOTAL - claimed);
-            const percentage = Math.min(100, (claimed / SPOTS_TOTAL) * 100);
-            
-            const filledBar = document.getElementById('spots-filled-bar');
-            const label = document.getElementById('spots-label');
-            
-            if (filledBar) {
-                filledBar.style.width = percentage + '%';
-            }
-            if (label) {
-                if (remaining === 0) {
-                    label.textContent = 'All spots claimed!';
-                } else {
-                    label.textContent = claimed + ' of ' + SPOTS_TOTAL + ' spots claimed';
-                }
-            }
-        }
-
-        // Initialize spots counter on page load
-        function initSpotsCounter() {
-            const claimed = getLocalSpotsCount();
-            updateSpotsUI(claimed);
-        }
-
-        // Increment spots count after successful form submission
-        function incrementSpotsCount() {
-            let claimed = getLocalSpotsCount();
-            if (claimed < SPOTS_TOTAL) {
-                claimed++;
-                localStorage.setItem(SPOTS_STORAGE_KEY, claimed.toString());
-                updateSpotsUI(claimed);
-            }
-        }
-
-        // Initialize on page load
-        initSpotsCounter();
     </script>
 <script src="https://cdn.tinystats.net/scripts/capi.js" async></script>
 </body>
