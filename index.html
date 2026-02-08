@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equine Practitioner - Early Access</title>
+    
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://equinepractitioner.app/">
+    <meta property="og:title" content="Equine Practitioner - The App for Equine Practitioners">
+    <meta property="og:description" content="The all-in-one app for equine practitioners. Streamline your appointments, treatments, and invoicing. Join Early Access today.">
+    <meta property="og:image" content="https://www.equinepractitioner.app/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://equinepractitioner.app/">
+    <meta name="twitter:title" content="Equine Practitioner - The App for Equine Practitioners">
+    <meta name="twitter:description" content="The all-in-one app for equine practitioners. Streamline your appointments, treatments, and invoicing.">
+    <meta name="twitter:image" content="https://www.equinepractitioner.app/og-image.jpg">
+    
+    <!-- General Meta -->
+    <meta name="description" content="The all-in-one app for equine practitioners. Streamline your appointments, treatments, and invoicing. Join Early Access today.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Lumineer Digital inspired color palette - purple to cyan gradient */
+            --primary: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --secondary: #06B6D4;
+            --secondary-dark: #0891B2;
+            --accent: #A855F7;
+            --gradient-start: #8B5CF6;
+            --gradient-end: #06B6D4;
+            /* Legacy aliases for compatibility */
+            --cvs-red: #8B5CF6;
+            --cvs-red-dark: #7C3AED;
+            --cvs-blue: #8B5CF6;
+            --cvs-blue-dark: #7C3AED;
+            --cvs-green: #06B6D4;
+            --cvs-green-light: #CFFAFE;
+            --background: #FAFAFA;
+            --foreground: #1A1A1A;
+            --card: #FFFFFF;
+            --border: #E5E5E5;
+            --muted: #737373;
+            --gray-50: #FAFAFA;
+            --gray-100: #F5F5F5;
+            --gray-200: #E5E5E5;
+            --gray-300: #D4D4D4;
+            --gray-400: #A3A3A3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+        }
+
+        /* Scroll Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(139, 92, 246, 0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-delay-1 { transition-delay: 0.1s; }
+        .animate-delay-2 { transition-delay: 0.2s; }
+        .animate-delay-3 { transition-delay: 0.3s; }
+        .animate-delay-4 { transition-delay: 0.4s; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--foreground);
+            line-height: 1.6;
+            background-color: var(--background);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            gap: 0.15rem;
+        }
+
+        .logo-prefix {
+            font-size: 0.7rem;
+            color: var(--gray-500);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-img {
+            height: 28px;
+            width: auto;
+        }
+
+        .nav-cta {
+            background: var(--cvs-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: background 0.2s;
+        }
+
+        .nav-cta:hover {
+            background: var(--cvs-blue-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, var(--gray-50) 0%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .beta-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Hide mobile badge on desktop */
+        .mobile-badge {
+            display: none;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Flip Clock Animation */
+        .flip-container {
+            display: inline-block;
+            position: relative;
+            height: 1.1em;
+            overflow: hidden;
+            vertical-align: bottom;
+        }
+
+        .flip-word {
+            display: inline-block;
+            position: relative;
+            color: #1a1a1a !important;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+            background-clip: unset !important;
+        }
+
+        .flip-word.flip-out {
+            animation: flipOut 0.3s ease-in forwards;
+        }
+
+        .flip-word.flip-in {
+            animation: flipIn 0.3s ease-out forwards;
+        }
+
+        @keyframes flipOut {
+            0% {
+                transform: rotateX(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: rotateX(-90deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes flipIn {
+            0% {
+                transform: rotateX(90deg);
+                opacity: 0;
+            }
+            100% {
+                transform: rotateX(0deg);
+                opacity: 1;
+            }
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+/* Practitioner Type Slide Animation */
+        .hero-tagline {
+            font-size: 1.35rem;
+            color: var(--gray-500);
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            line-height: 2.2rem;
+        }
+
+        .hero-subtext {
+            font-size: 1.25rem;
+            color: var(--gray-500);
+            margin-top: 0.3rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        /* Flipped Hero Styles */
+        .flipped-hero {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            color: var(--gray-900);
+            letter-spacing: -0.02em;
+        }
+
+        .flipped-hero .hero-line-1 {
+            display: block;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .flipped-hero .hero-line-2 {
+            display: block;
+        }
+
+        .flipped-hero .equine-word {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .flipped-hero .hero-line-3 {
+            display: inline-block;
+            font-size: 0.75em;
+            font-weight: 400;
+            color: #000000 !important;
+            text-transform: capitalize;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            -webkit-text-fill-color: #000000 !important;
+            background-clip: unset !important;
+            white-space: nowrap;
+            overflow: hidden;
+            vertical-align: bottom;
+            height: 1.2em;
+        }
+
+        .practitioner-type-large.slide-out,
+        .practitioner-type-inline.slide-out,
+        .hero-line-3.slide-out {
+            animation: slideOutLeft 0.4s ease-in forwards;
+        }
+
+        .practitioner-type-large.slide-in,
+        .practitioner-type-inline.slide-in,
+        .hero-line-3.slide-in {
+            animation: slideInRight 0.4s ease-out forwards;
+        }
+
+        .hero-subtext-flipped {
+            font-size: 1.25rem;
+            color: var(--gray-500);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            max-width: 500px;
+        }
+
+        .urgency-text {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            max-width: 500px;
+        }
+
+        .spots-progress {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            max-width: 350px;
+        }
+
+        .spots-bar {
+            flex: 1;
+            height: 10px;
+            background: var(--gray-200);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .spots-filled {
+            height: 100%;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            border-radius: 9999px;
+            transition: width 0.5s ease;
+        }
+
+        .spots-label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            white-space: nowrap;
+            line-height: 1.5;
+        }
+
+        .practitioner-flip-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+            padding: 0.15rem 0.75rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            min-width: 160px;
+            height: 2rem;
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+
+        .practitioner-flip-word {
+            display: inline-block;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 1.1rem;
+            text-transform: capitalize;
+        }
+
+        .practitioner-flip-word.slide-out {
+            animation: slideOutLeft 0.4s ease-in forwards;
+        }
+
+        .practitioner-flip-word.slide-in {
+            animation: slideInRight 0.4s ease-out forwards;
+        }
+
+        @keyframes slideOutLeft {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(139, 92, 246, 0.35);
+        }
+
+        .btn-primary.pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--gray-700);
+            padding: 1rem 2rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid var(--gray-200);
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--cvs-blue);
+            color: var(--cvs-blue);
+        }
+
+        /* Phone Mockup with Video */
+        .phone-mockup {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone-mockup::before {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 650px;
+            background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.2) 0%, rgba(6, 182, 212, 0.1) 50%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            filter: blur(40px);
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 280px;
+            height: 580px;
+            background: #000;
+            border-radius: 44px;
+            padding: 8px;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 80px rgba(139, 92, 246, 0.2),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 36px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-screen video,
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Placeholder for video - shows app screenshot */
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #f5f5f5 0%, #fff 100%);
+            display: flex;
+            flex-direction: column;
+            padding: 50px 16px 16px;
+        }
+
+        .placeholder-header {
+            margin-bottom: 16px;
+        }
+
+        .placeholder-greeting {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .placeholder-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .placeholder-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .placeholder-card {
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .placeholder-card.blue {
+            background: var(--cvs-blue);
+            color: white;
+        }
+
+        .placeholder-card-label {
+            font-size: 10px;
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+
+        .placeholder-card-value {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .placeholder-schedule {
+            background: white;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .placeholder-schedule-title {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--gray-700);
+        }
+
+        .placeholder-schedule-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--gray-100);
+            font-size: 11px;
+        }
+
+        .placeholder-schedule-item:last-child {
+            border-bottom: none;
+        }
+
+        .placeholder-time {
+            color: var(--cvs-blue);
+            font-weight: 600;
+            min-width: 50px;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .pain-point {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            border: none;
+            color: white;
+        }
+
+        .pain-point:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.4);
+        }
+
+        .pain-point h3 {
+            color: white;
+        }
+
+        .pain-point p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .pain-point-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .pain-point h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .pain-point p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Challenges Section */
+        .challenges-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            text-align: center;
+        }
+
+        .challenges-section h2 {
+            color: var(--gray-900);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            letter-spacing: -0.02em;
+        }
+
+        .challenges-section > p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .challenges-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .challenge-tag {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .challenges-cta {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .challenges-cta a {
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .challenges-cta a:hover {
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 6rem 2rem;
+            background: var(--gray-50);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px);
+            border-color: rgba(0, 102, 204, 0.2);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(0, 102, 204, 0.1);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-card p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+        }
+
+        /* Beta Benefits Section */
+        .benefits-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
+        }
+
+        .benefits-section .section-header h2 {
+            color: white;
+        }
+
+        .benefits-section .section-header p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .benefit-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .benefit-card p {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            position: relative;
+            padding: 0;
+            background: var(--gray-900);
+        }
+
+        .testimonial-hero-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .testimonial-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 40%, transparent 70%);
+            padding: 2rem 2rem 1.5rem;
+        }
+
+        .testimonial-section .section-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-section .section-header {
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-section .section-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-section .section-header p {
+            font-size: 0.875rem;
+        }
+
+        .testimonial-section .section-header h2 {
+            color: white;
+        }
+
+        .testimonial-section .section-header p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .testimonial-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 1rem;
+            padding: 1.25rem 1.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .testimonial-card::before {
+            display: none;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-quote {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-signature {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        .testimonial-quote strong {
+            color: var(--cvs-blue);
+            font-style: normal;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            min-width: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-info p {
+            color: var(--gray-500);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2.25rem;
+            max-width: 540px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--gray-100);
+            cursor: pointer;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--gray-200);
+        }
+
+        .modal h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal > p {
+            color: var(--gray-500);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-family: inherit;
+            background: #fafafa;
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            background: #fff;
+            border-color: var(--gradient-start);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.625rem;
+        }
+
+        .checkbox-label {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 0.5rem;
+            min-height: 48px;
+            background: #f8f8f8;
+            border-radius: 0.625rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1.5px solid #e5e5e5;
+        }
+
+        .checkbox-label:hover {
+            background: #f0f0f0;
+            border-color: #d5d5d5;
+        }
+
+        /* Hide actual checkbox */
+        .checkbox-label input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        /* Chip content container */
+        .chip-content {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #444;
+            white-space: nowrap;
+        }
+
+        /* Custom checkbox indicator */
+        .chip-check {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+        }
+
+        .chip-check svg {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.15s;
+        }
+
+        /* Selected state */
+        .checkbox-label:has(input:checked) {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.08) 0%, rgba(6, 182, 212, 0.08) 100%);
+            border-color: #8b5cf6;
+        }
+
+        .checkbox-label:has(input:checked) .chip-check {
+            background: #8b5cf6;
+            border-color: #8b5cf6;
+        }
+
+        .checkbox-label:has(input:checked) .chip-check svg {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .checkbox-label:has(input:checked) .chip-content {
+            color: #6d28d9;
+        }
+
+        /* Other input field */
+        .other-input-group {
+            margin-top: 0.75rem;
+        }
+
+        .other-label {
+            display: block;
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+
+        .other-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e5e5e5;
+            border-radius: 0.625rem;
+            font-size: 0.875rem;
+            background: #fafafa;
+            transition: all 0.2s;
+        }
+
+        .other-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+        }
+
+        .other-input::placeholder {
+            color: #aaa;
+        }
+
+        .modal .btn-primary {
+            width: 100%;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, var(--gray-50) 0%, white 100%);
+        }
+
+        .features-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .features-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .features-header p {
+            font-size: 1rem;
+            color: var(--gray-500);
+        }
+
+        .flagship-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            border: 1px solid var(--gray-200);
+            transition: all 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.1);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--primary);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .feature-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-card p {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            line-height: 1.4;
+        }
+
+        .coming-soon-section {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coming-soon-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .coming-soon-header {
+            text-align: center;
+            margin-bottom: 1.25rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .coming-soon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon-badge svg {
+            width: 14px;
+            height: 14px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .coming-soon-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .coming-soon-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .coming-soon-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+        }
+
+        .coming-soon-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .coming-soon-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .coming-soon-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        .coming-soon-card h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .coming-soon-card p {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem;
+            background: var(--gray-900);
+            color: var(--gray-400);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hero-content {
+                order: -1;
+            }
+
+            .phone-mockup {
+                order: 1;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .phone-mockup {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+
+            .phone-frame {
+                width: 240px;
+                height: 500px;
+            }
+
+            .pain-points {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 5rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                text-align: center;
+                line-height: 1.15;
+            }
+
+            .hero h1 br {
+                display: none;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-content p {
+                text-align: center;
+            }
+
+            /* Mobile hero tagline and practitioner pill */
+            .hero-tagline {
+                font-size: 1rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                gap: 0.25rem;
+                margin-bottom: 0;
+                padding-bottom: 0;
+                width: 100%;
+            }
+
+            .hero-subtext {
+                font-size: 1rem;
+                text-align: center;
+                margin-top: 0;
+                width: 100%;
+            }
+
+            .practitioner-flip-container {
+                min-width: 150px;
+                height: 1.8rem;
+                padding: 0.1rem 0.6rem;
+                margin: 0 auto;
+            }
+
+            .practitioner-flip-word {
+                font-size: 0.95rem;
+            }
+
+            /* Flipped hero mobile styles */
+            .flipped-hero {
+                font-size: 1.75rem;
+                text-align: center;
+                line-height: 1.1;
+            }
+
+            .flipped-hero .hero-line-1 {
+                display: block;
+            }
+
+            .flipped-hero .hero-line-2 {
+                display: block;
+            }
+
+            .flipped-hero .hero-line-3 {
+                display: block;
+            }
+
+            .hero-subtext-flipped {
+                font-size: 1rem;
+                text-align: center;
+                margin: 1rem 0 1.5rem;
+                max-width: 100%;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            /* Hide hero CTA buttons on mobile - use header CTA instead */
+            .hero-content .hero-buttons {
+                display: none;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .phone-frame {
+                width: 220px;
+                height: 460px;
+            }
+
+            /* Modal mobile fixes - clean bottom sheet design */
+            .modal-overlay {
+                padding: 0;
+                align-items: flex-end;
+            }
+
+            .modal {
+                padding: 0;
+                max-height: 85vh;
+                width: 100%;
+                border-radius: 1.5rem 1.5rem 0 0;
+                overflow-y: auto;
+            }
+
+            /* Drag handle for bottom sheet feel */
+            .modal::before {
+                content: '';
+                display: block;
+                width: 36px;
+                height: 4px;
+                background: #ddd;
+                border-radius: 2px;
+                margin: 12px auto 8px;
+            }
+
+            .modal-close {
+                top: 0.75rem;
+                right: 0.75rem;
+                width: 32px;
+                height: 32px;
+                font-size: 1.25rem;
+            }
+
+            .modal h3 {
+                font-size: 1.25rem;
+                text-align: center;
+                margin-bottom: 0.25rem;
+                padding: 0 1.5rem;
+            }
+
+            .modal > p {
+                font-size: 0.85rem;
+                text-align: center;
+                margin-bottom: 1rem;
+                padding: 0 1.5rem 1rem;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .modal form {
+                padding: 1.25rem 1.5rem 2rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-group label {
+                font-size: 0.8rem;
+                font-weight: 600;
+                margin-bottom: 0.375rem;
+                color: #333;
+            }
+
+            .form-group input,
+            .form-group select {
+                padding: 0.875rem 1rem;
+                font-size: 1rem;
+                border-radius: 0.75rem;
+                background: #fafafa;
+                border: 1.5px solid #e0e0e0;
+            }
+
+            .form-group input:focus,
+            .form-group select:focus {
+                background: #fff;
+                border-color: var(--gradient-start);
+            }
+
+            /* Checkbox group - clean 2 column grid */
+            .checkbox-group {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.625rem;
+            }
+
+            .checkbox-label {
+                padding: 0.75rem 0.625rem;
+            }
+
+            .chip-content {
+                font-size: 0.8rem;
+            }
+
+            .chip-check {
+                width: 16px;
+                height: 16px;
+            }
+
+            .modal .btn-primary {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                margin-top: 1rem;
+                border-radius: 0.875rem;
+            }
+
+            /* Challenges section mobile */
+            .challenges-section {
+                padding: 3rem 1rem;
+            }
+
+            .challenges-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .challenges-grid {
+                gap: 0.5rem;
+            }
+
+            .challenge-tag {
+                padding: 0.4rem 0.6rem;
+                font-size: 0.75rem;
+            }
+
+            .challenges-cta {
+                font-size: 1rem;
+            }
+
+            /* Pain points mobile */
+            .pain-points {
+                padding: 3rem 1rem;
+            }
+
+            .pain-points-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .pain-point {
+                padding: 1.5rem;
+            }
+
+            .pain-point h3 {
+                font-size: 1.25rem;
+            }
+
+            .pain-point p {
+                font-size: 0.95rem;
+            }
+
+            /* Testimonial mobile */
+            .testimonial-section {
+                min-height: 400px;
+            }
+
+            .testimonial-card {
+                padding: 1rem 1.25rem;
+                margin: 0 1rem;
+            }
+
+            .testimonial-card p {
+                font-size: 0.9rem;
+            }
+
+            /* CTA section mobile */
+            .cta-section {
+                padding: 3rem 1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-section p {
+                font-size: 0.95rem;
+            }
+
+            /* Nav mobile */
+            .logo-img {
+                height: 24px;
+            }
+
+            .logo-prefix {
+                font-size: 0.6rem;
+            }
+
+            .nav-cta {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            /* Beta badge mobile */
+            .beta-badge {
+                font-size: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
+
+            /* Flip word mobile */
+            .flip-container {
+                min-width: 140px;
+                display: inline-block;
+            }
+
+            .flip-word {
+                min-width: 140px;
+                text-align: center;
+            }
+
+            /* Restructure headline for mobile - 3 lines */
+            .hero h1 {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                line-height: 1.2;
+                gap: 0.25rem;
+            }
+
+            .hero-line-1 {
+                display: block;
+            }
+
+            .flip-container {
+                display: block;
+            }
+
+            .hero-line-3 {
+                display: block;
+            }
+
+            .hero h1 br {
+                display: none;
+            }
+
+            /* Badge positioning on mobile */
+            .mobile-badge {
+                display: flex;
+                order: 3;
+                margin-top: 1.5rem;
+            }
+
+            .flagship-grid {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .coming-soon-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-section {
+                padding: 2rem 1rem;
+            }
+
+            .coming-soon-section {
+                padding: 1.25rem;
+            }
+
+            .features-header h2 {
+                font-size: 1.5rem;
+            }
+
+            /* Mobile feature cards - stacked block style like pain-points */
+            .feature-card {
+                text-align: center;
+                padding: 1.5rem;
+                background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+                border-radius: 1rem;
+                border: none;
+                color: white;
+                box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            }
+
+            .feature-card:hover {
+                transform: none;
+                box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+            }
+
+            .feature-icon {
+                width: 48px;
+                height: 48px;
+                background: rgba(255, 255, 255, 0.2);
+                margin: 0 auto 1rem;
+            }
+
+            .feature-icon svg {
+                stroke: white;
+            }
+
+            .feature-card h3 {
+                font-size: 1.1rem;
+                color: white;
+                margin-bottom: 0.5rem;
+            }
+
+            .feature-card p {
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.9);
+                line-height: 1.5;
+            }
+
+            /* Mobile coming-soon cards - stacked block style */
+            .coming-soon-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .coming-soon-card {
+                text-align: center;
+                padding: 1.25rem;
+            }
+
+            .coming-soon-icon {
+                margin: 0 auto 0.75rem;
+                width: 44px;
+                height: 44px;
+            }
+
+            .coming-soon-card h4 {
+                font-size: 1rem;
+            }
+
+            .coming-soon-card p {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .flagship-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .coming-soon-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="https://lumineerdigital.com" class="logo">
+            <span class="logo-prefix">Brought to you by</span>
+            <img src="lumineer-logo.png" alt="Lumineer Digital" class="logo-img">
+        </a>
+        <a href="#" class="nav-cta" onclick="openModal()">Get Early Access</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="flipped-hero"><span class="hero-line-1">The All-In-One</span><span class="hero-line-2">App For <span class="equine-word">Equine</span></span><span class="hero-line-3" id="practitioner-flip-text">Physiotherapists</span></h1>
+                <p class="hero-subtext-flipped">Stop juggling appointments, invoicing, and client records. Focus on what matters.</p>
+                <p class="urgency-text">Create your account today and be one of the first 20 to get free access for life.</p>
+                <div class="spots-progress">
+                    <div class="spots-bar">
+                        <div class="spots-filled" id="spots-filled-bar" style="width: 0%;"></div>
+                    </div>
+                    <span class="spots-label" id="spots-label">Loading...</span>
+                </div>
+                <div class="hero-buttons">
+                    <button class="btn-primary pulse" onclick="openModal()">
+                        <span>Get Early Access</span>
+                        <span>→</span>
+                    </button>
+                    <a href="#features" class="btn-secondary">
+                        <span>See Features</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Phone Mockup for Video -->
+            <div class="phone-mockup">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <video autoplay loop muted playsinline poster="demo-poster.jpg" preload="metadata">
+                            <source src="demo-mobile.mp4" media="(max-width: 640px)" type="video/mp4">
+                            <source src="demo-optimized.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Badge - shows below phone on mobile -->
+            <div class="beta-badge mobile-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span>Help us build something special · Your feedback is invaluable</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section class="challenges-section">
+        <h2>Help us tackle the biggest challenges for Equine Practitioners</h2>
+        <div class="challenges-grid">
+            <div class="challenge-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Scattered client notes</div>
+            <div class="challenge-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Booking headaches</div>
+            <div class="challenge-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Invoice chaos</div>
+            <div class="challenge-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Multi-horse tracking</div>
+            <div class="challenge-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Yard visit scheduling</div>
+            <div class="challenge-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg> No mobile-friendly tools</div>
+            <div class="challenge-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Difficulty reporting</div>
+        </div>
+        <p class="challenges-cta">Can you relate to any of these? <a onclick="openModal()">Get involved →</a></p>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <h2>Sound Familiar?</h2>
+                <p>Running an equine practice shouldn't mean drowning in admin work.</p>
+            </div>
+            <div class="pain-points">
+                <div class="pain-point animate-on-scroll animate-delay-1">
+                    <div class="pain-point-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <h3>Lost in Appointment Notes?</h3>
+                    <p>Scattered notes across notebooks, phones, and sticky notes make it hard to track patient history.</p>
+                </div>
+                <div class="pain-point animate-on-scroll animate-delay-2">
+                    <div class="pain-point-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                    <h3>Invoice Chaos?</h3>
+                    <p>Chasing payments and creating invoices manually eats into your valuable time.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="features-container">
+            <div class="features-header">
+                <h2>What We're Building for Equine Practitioners</h2>
+                <p>All your practice management in one place.</p>
+            </div>
+
+            <!-- Flagship Features -->
+            <div class="flagship-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Dashboard</h3>
+                        <p>Daily schedule, metrics, and overdue items at a glance.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Clients & Horses</h3>
+                        <p>Store owner details, horse profiles, and treatment history.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Appointments</h3>
+                        <p>Book visits, track status, and calculate travel time.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Treatment Notes</h3>
+                        <p>Record findings and track progress for each horse.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Invoicing</h3>
+                        <p>Generate invoices, export PDFs, and log payments.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Mobile Ready</h3>
+                        <p>Works on any device, designed for use in the field.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coming Soon -->
+            <div class="coming-soon-section">
+                <div class="coming-soon-header">
+                    <div class="coming-soon-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <span>Coming Soon</span>
+                    </div>
+                    <h3>On the Roadmap</h3>
+                </div>
+
+                <div class="coming-soon-grid">
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/><path d="M7.5 13a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/><path d="M16.5 13a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z"/></svg>
+                        </div>
+                        <h4>AI Assistant</h4>
+                        <p>Draft emails, summarize notes, and get practice insights.</p>
+                    </div>
+
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18h.01"/><path d="M7 21h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"/><path d="M12 6v6"/></svg>
+                        </div>
+                        <h4>Native Apps</h4>
+                        <p>Dedicated apps for iOS and Android app stores.</p>
+                    </div>
+
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"/><path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/><path d="M12 6v2m0 8v2"/></svg>
+                        </div>
+                        <h4>Xero & QuickBooks</h4>
+                        <p>Sync invoices and payments with your accounting software.</p>
+                    </div>
+
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                        </div>
+                        <h4>Stripe Payments</h4>
+                        <p>Accept card payments directly through the app.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonial-section">
+        <img src="testimonial-hero.jpg" alt="Equine physiotherapist working with a horse" class="testimonial-hero-image">
+        <div class="testimonial-overlay">
+            <div class="section-container">
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-content">
+                        <p class="testimonial-quote">
+                            "I tried making <strong>Cliniko</strong> work for my equine practice, but I was constantly fighting against it. Workarounds for yard visits, tracking multiple horses per client. I always dreamed of something <strong>purpose-built for equine practitioners</strong>. When I saw Equine Practitioner, I finally felt like <strong>someone actually understood my world</strong>."
+                        </p>
+                        <p class="testimonial-signature">Annie McAndrew, Equine Physiotherapist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Simplify Your Practice?</h2>
+        <p>What features would you like to see? What would make your life easier? Help shape the future of equine practice software.</p>
+        <button class="btn-primary" onclick="openModal()">
+            <span>Reserve Your Spot</span>
+            <span>→</span>
+        </button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Equine Practitioner. All rights reserved. Made with care for equine practitioners.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <h3>Get Early Access</h3>
+            <p>What features would you like to see? What would make your life easier?</p>
+            <form id="beta-form" action="https://formspree.io/f/mqepbpvv" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="e.g., Sarah Jones">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="practice">Practice Name (Optional)</label>
+                    <input type="text" id="practice" name="practice" placeholder="e.g., Sarah's Equine Practice">
+                </div>
+                <div class="form-group">
+                    <label>What challenges do you face?</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="stress_areas" value="notes">
+                            <span class="chip-content">
+                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                                Client Notes
+                            </span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="stress_areas" value="booking">
+                            <span class="chip-content">
+                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                                Scheduling
+                            </span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="stress_areas" value="invoicing">
+                            <span class="chip-content">
+                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                                Invoicing
+                            </span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="stress_areas" value="multi_horse">
+                            <span class="chip-content">
+                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                                Multi-Horse
+                            </span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="stress_areas" value="yard_visits">
+                            <span class="chip-content">
+                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                                Yard Visits
+                            </span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="stress_areas" value="reporting">
+                            <span class="chip-content">
+                                <span class="chip-check"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+                                Reporting
+                            </span>
+                        </label>
+                    </div>
+                    <div class="other-input-group">
+                        <label class="other-label">Other (please specify)</label>
+                        <input type="text" name="other_challenge" class="other-input" placeholder="e.g., Client communication, Travel planning...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="source">How did you hear about us?</label>
+                    <select id="source" name="source">
+                        <option value="">Select an option</option>
+                        <option value="social">Social Media</option>
+                        <option value="colleague">Colleague Referral</option>
+                        <option value="search">Google Search</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Create my account</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Handle form submission with Formspree
+        document.getElementById('beta-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                const modal = document.querySelector('.modal');
+                
+                if (response.ok) {
+                    // Increment spots counter
+                    incrementSpotsCount();
+                    // Redirect to app signup page
+                    window.location.href = 'https://app.equinepractitioner.app/signup';
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                alert('Oops! There was a problem submitting your form. Please try again.');
+            }
+        });
+
+        // Close modal on overlay click
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Scroll animations using Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Flip clock animation for hero headline
+        const flipWords = ['Appointments.', 'Invoicing.', 'Notes.', 'Reporting.'];
+        let currentIndex = 0;
+        const flipText = document.getElementById('flip-text');
+
+        function flipToNextWord() {
+            // Flip out current word
+            flipText.classList.add('flip-out');
+            
+            setTimeout(() => {
+                // Change the word
+                currentIndex = (currentIndex + 1) % flipWords.length;
+                flipText.textContent = flipWords[currentIndex];
+                
+                // Remove flip-out, add flip-in
+                flipText.classList.remove('flip-out');
+                flipText.classList.add('flip-in');
+                
+                setTimeout(() => {
+                    flipText.classList.remove('flip-in');
+                }, 300);
+            }, 300);
+        }
+
+        // Start the flip animation cycle
+        setInterval(flipToNextWord, 2000);
+
+        // Practitioner type slide animation
+        const practitionerTypes = ['veterinarians', 'dentists', 'physiotherapists', 'chiropractors', 'osteopaths', 'sports therapists', 'massage therapists', 'farriers', 'podiatrists', 'acupuncturists', 'hydrotherapists', 'laser therapists'];
+        let practitionerIndex = 0;
+        const practitionerFlipText = document.getElementById('practitioner-flip-text');
+
+        function slideToPractitioner() {
+            // Use the large variant class for the flipped hero
+            practitionerFlipText.classList.add('slide-out');
+            
+            setTimeout(() => {
+                practitionerIndex = (practitionerIndex + 1) % practitionerTypes.length;
+                practitionerFlipText.textContent = practitionerTypes[practitionerIndex];
+                
+                practitionerFlipText.classList.remove('slide-out');
+                practitionerFlipText.classList.add('slide-in');
+                
+                setTimeout(() => {
+                    practitionerFlipText.classList.remove('slide-in');
+                }, 400);
+            }, 400);
+        }
+
+        // Start practitioner slide animation (offset from main flip)
+        setTimeout(() => {
+            setInterval(slideToPractitioner, 2500);
+        }, 1000);
+
+        // Spots counter functionality
+        const SPOTS_TOTAL = 20;
+        const SPOTS_STORAGE_KEY = 'equine_spots_claimed';
+        const SPOTS_API_URL = 'https://api.jsonbin.io/v3/b/679781a0e41b4d34e47a7c8f';
+        const SPOTS_API_KEY = '$2a$10$QJ8Zj8Q8Q8Q8Q8Q8Q8Q8Qe';
+
+        // Get spots count from localStorage (fallback) or use default
+        function getLocalSpotsCount() {
+            const stored = localStorage.getItem(SPOTS_STORAGE_KEY);
+            return stored ? parseInt(stored, 10) : 12; // Default to 12 claimed
+        }
+
+        // Update the progress bar UI
+        function updateSpotsUI(claimed) {
+            const remaining = Math.max(0, SPOTS_TOTAL - claimed);
+            const percentage = Math.min(100, (claimed / SPOTS_TOTAL) * 100);
+            
+            const filledBar = document.getElementById('spots-filled-bar');
+            const label = document.getElementById('spots-label');
+            
+            if (filledBar) {
+                filledBar.style.width = percentage + '%';
+            }
+            if (label) {
+                if (remaining === 0) {
+                    label.textContent = 'All spots claimed!';
+                } else {
+                    label.textContent = claimed + ' of ' + SPOTS_TOTAL + ' spots claimed';
+                }
+            }
+        }
+
+        // Initialize spots counter on page load
+        function initSpotsCounter() {
+            const claimed = getLocalSpotsCount();
+            updateSpotsUI(claimed);
+        }
+
+        // Increment spots count after successful form submission
+        function incrementSpotsCount() {
+            let claimed = getLocalSpotsCount();
+            if (claimed < SPOTS_TOTAL) {
+                claimed++;
+                localStorage.setItem(SPOTS_STORAGE_KEY, claimed.toString());
+                updateSpotsUI(claimed);
+            }
+        }
+
+        // Initialize on page load
+        initSpotsCounter();
+    </script>
+<script src="https://cdn.tinystats.net/scripts/capi.js" async></script>
+</body>
+</html>
