@@ -158,23 +158,22 @@
 
         .logo {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             text-decoration: none;
-            gap: 0.15rem;
+            gap: 0.5rem;
         }
 
-        .logo-prefix {
-            font-size: 0.7rem;
-            color: var(--gray-500);
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .logo-horse {
+            width: 32px;
+            height: 32px;
         }
 
-        .logo-img {
-            height: 28px;
-            width: auto;
+        .logo-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            letter-spacing: -0.01em;
         }
 
         .nav-cta {
@@ -1403,7 +1402,7 @@
         }
 
         .features-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -1427,7 +1426,7 @@
 
         .flagship-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
             margin-bottom: 2rem;
         }
@@ -1585,6 +1584,57 @@
             line-height: 1.4;
         }
 
+        /* Trust Strip */
+        .trust-strip-section {
+            padding: 3rem 2rem;
+            background: white;
+        }
+
+        .trust-strip-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1.5rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .trust-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .trust-text strong {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .trust-text span {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            line-height: 1.3;
+        }
+
         /* Footer */
         footer {
             padding: 2rem;
@@ -1640,6 +1690,14 @@
 
             .features-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .flagship-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .trust-strip-container {
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .benefits-grid {
@@ -1979,12 +2037,13 @@
             }
 
             /* Nav mobile */
-            .logo-img {
-                height: 24px;
+            .logo-horse {
+                width: 26px;
+                height: 26px;
             }
 
-            .logo-prefix {
-                font-size: 0.6rem;
+            .logo-name {
+                font-size: 0.85rem;
             }
 
             .nav-cta {
@@ -2043,8 +2102,13 @@
             }
 
             .flagship-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 0.75rem;
+            }
+
+            .trust-strip-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
             }
 
             .coming-soon-grid {
@@ -2135,6 +2199,11 @@
             .coming-soon-grid {
                 grid-template-columns: 1fr;
             }
+
+            .trust-strip-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
         }
 
 
@@ -2143,9 +2212,17 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <a href="https://lumineerdigital.com" class="logo">
-            <span class="logo-prefix">Brought to you by</span>
-            <img src="lumineer-logo.png" alt="Lumineer Digital" class="logo-img">
+        <a href="https://equinepractitioner.app" class="logo">
+            <svg class="logo-horse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+                <path d="M48 8c-2 0-4 1-5 3l-3 5c-1 2-3 3-5 3h-4c-3 0-6 1-8 4l-6 8c-2 3-3 6-3 9v8c0 2 1 3 3 3h2c1 0 2-1 2-3v-6l4-5h6v11c0 2 1 3 3 3h2c1 0 2-1 2-3V37l6-8 2-4v-4l3-2c2-1 3-3 3-5V10c0-1-1-2-2-2h-2z" fill="url(#horse-grad)" />
+                <defs>
+                    <linearGradient id="horse-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#8B5CF6"/>
+                        <stop offset="100%" style="stop-color:#06B6D4"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="logo-name">The Equine Practitioner App</span>
         </a>
         <a href="https://app.equinepractitioner.app/signup" class="nav-cta">Sign Up For Free</a>
     </nav>
@@ -2285,11 +2362,11 @@
     <section class="features-section" id="features">
         <div class="features-container">
             <div class="features-header">
-                <h2>What We're Building for Equine Practitioners</h2>
-                <p>All your practice management in one place.</p>
+                <h2>Everything You Need to Run Your Practice</h2>
+                <p>Built from the ground up for equine practitioners. No workarounds, no compromises.</p>
             </div>
 
-            <!-- Flagship Features -->
+            <!-- Flagship Features - 12 cards -->
             <div class="flagship-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -2297,7 +2374,7 @@
                     </div>
                     <div class="feature-content">
                         <h3>Dashboard</h3>
-                        <p>Daily schedule, metrics, and overdue items at a glance.</p>
+                        <p>Today's schedule, key metrics, overdue items, and a Needs Attention section so nothing slips through.</p>
                     </div>
                 </div>
 
@@ -2307,7 +2384,7 @@
                     </div>
                     <div class="feature-content">
                         <h3>Clients & Horses</h3>
-                        <p>Store owner details, horse profiles, and treatment history.</p>
+                        <p>Owner profiles, horse records, discipline tags, activity logs, and searchable dropdowns. Every detail in one place.</p>
                     </div>
                 </div>
 
@@ -2317,7 +2394,17 @@
                     </div>
                     <div class="feature-content">
                         <h3>Appointments</h3>
-                        <p>Book visits, track status, and calculate travel time.</p>
+                        <p>Book visits with duration slots, track status from upcoming to completed, and choose between yard or client-address callouts.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Smart Travel Time</h3>
+                        <p>Google Maps built in. Automatically calculates travel time between appointments and shows "leave by" times on your schedule.</p>
                     </div>
                 </div>
 
@@ -2327,7 +2414,37 @@
                     </div>
                     <div class="feature-content">
                         <h3>Treatment Notes</h3>
-                        <p>Record findings and track progress for each horse.</p>
+                        <p>SOAP-style clinical records covering subjective, assessment, palpation, treatment, and recommendations. All timestamped and linked to the horse.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Vet Reports</h3>
+                        <p>Generate professional clinical reports for referring vets with your practice branding. Print or share in one tap.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Body Chart</h3>
+                        <p>Mark findings on an anatomical horse diagram with tappable regions. Visual clinical records that speak louder than words.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Photos & Videos</h3>
+                        <p>Capture photos mid-treatment, upload videos and vet documents. Everything filed under the right horse with gallery filtering and sharing.</p>
                     </div>
                 </div>
 
@@ -2337,7 +2454,27 @@
                     </div>
                     <div class="feature-content">
                         <h3>Invoicing</h3>
-                        <p>Generate invoices, export PDFs, and log payments.</p>
+                        <p>Branded invoices with your logo, a built-in service catalog, and editable line items. Email to clients in one tap.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Payments</h3>
+                        <p>Record full or partial payments, track outstanding balances per client, and mark invoices as paid. No more chasing spreadsheets.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Works Worldwide</h3>
+                        <p>Auto-detects your region and currency. Supports GBP, USD, EUR, AUD, NZD, and CAD with local bank detail formats on every invoice.</p>
                     </div>
                 </div>
 
@@ -2346,8 +2483,8 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                     </div>
                     <div class="feature-content">
-                        <h3>Mobile Ready</h3>
-                        <p>Works on any device, designed for use in the field.</p>
+                        <h3>Mobile First</h3>
+                        <p>Built for life at the yard. Full experience on your phone, tablet, or desktop. Same app, every device.</p>
                     </div>
                 </div>
             </div>
@@ -2389,10 +2526,10 @@
 
                     <div class="coming-soon-card">
                         <div class="coming-soon-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
                         </div>
-                        <h4>Stripe Payments</h4>
-                        <p>Accept card payments directly through the app.</p>
+                        <h4>Calendar View</h4>
+                        <p>Visual calendar with drag-and-drop scheduling and collision detection.</p>
                     </div>
                 </div>
             </div>
@@ -2402,11 +2539,70 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <h2>Ready to Simplify Your Practice?</h2>
-        <p>What features would you like to see? What would make your life easier? Help shape the future of equine practice software.</p>
         <a href="https://app.equinepractitioner.app/signup" class="btn-primary">
             <span>Sign Up Today</span>
             <span>→</span>
         </a>
+    </section>
+
+    <!-- Trust Strip Section -->
+    <section class="trust-strip-section">
+        <div class="trust-strip-container">
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="trust-text">
+                    <strong>2-Minute Setup</strong>
+                    <span>Guided onboarding with postcode auto-fill</span>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="trust-text">
+                    <strong>7-Day Free Trial</strong>
+                    <span>Full features, no card required</span>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="trust-text">
+                    <strong>GDPR Compliant</strong>
+                    <span>Export or delete your data anytime</span>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </div>
+                <div class="trust-text">
+                    <strong>Secure Billing</strong>
+                    <span>Stripe-powered, monthly or annual</span>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                </div>
+                <div class="trust-text">
+                    <strong>Multiple Sign-In</strong>
+                    <span>Google, Apple, Microsoft, or email</span>
+                </div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </div>
+                <div class="trust-text">
+                    <strong>Your Data Is Yours</strong>
+                    <span>Isolated, encrypted, backed up on demand</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
