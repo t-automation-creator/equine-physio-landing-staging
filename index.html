@@ -777,13 +777,13 @@
 
         /* Founders Section */
         .founders-section {
-            padding: 4rem 0 0;
-            background: none;
+            padding: 6rem 2rem;
+            background: #FFFFFF;
             text-align: center;
         }
 
         .founders-section h2 {
-            color: #FFFFFF;
+            color: var(--gray-900);
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1rem;
@@ -791,7 +791,7 @@
         }
 
         .founders-section > p {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--muted);
             font-size: 1.1rem;
             margin-bottom: 3rem;
             max-width: 600px;
@@ -825,7 +825,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            border: 3px solid rgba(255, 255, 255, 0.6);
+            border: 3px solid var(--gray-200);
         }
 
         .founder-avatar svg {
@@ -847,20 +847,20 @@
         .founder-card h3 {
             font-size: 1.25rem;
             font-weight: 700;
-            color: #FFFFFF;
+            color: var(--gray-900);
             margin-bottom: 0.25rem;
         }
 
         .founder-card .founder-role {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
             font-weight: 600;
             margin-bottom: 0.75rem;
         }
 
         .founder-card .founder-bio {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--muted);
             line-height: 1.5;
             margin-bottom: 1rem;
         }
@@ -869,7 +869,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--primary);
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: 500;
@@ -877,7 +877,7 @@
         }
 
         .founder-instagram:hover {
-            color: #FFFFFF;
+            color: var(--primary-dark);
         }
 
         .founder-instagram svg {
@@ -2184,50 +2184,49 @@
         </div>
     </section>
 
-    <!-- Founders & Challenges Section -->
-    <section class="challenges-section">
-        <!-- Meet the Founders -->
-        <div class="founders-section animate-on-scroll">
-            <h2>Meet the Founders</h2>
-            <p>Built by people who understand equine practice from the inside out.</p>
-            <div class="founders-grid">
-                <div class="founder-card">
-                    <div class="founder-avatar">
-                        <img src="annie-headshot.jpg" alt="Annie McAndrew">
-                    </div>
-                    <h3>Annie McAndrew</h3>
-                    <p class="founder-role">CPO</p>
-                    <p class="founder-bio">BSc (Hons) Veterinary Physiotherapist<br>FEI permitted Therapist<br>Advanced INDIBA certified Therapist</p>
-                    <a href="https://www.instagram.com/annievetphysio/" class="founder-instagram" target="_blank" rel="noopener">
-                        Follow Annie on <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    </a>
+    <!-- Meet the Founders Section -->
+    <section class="founders-section animate-on-scroll">
+        <h2>Meet the Founders</h2>
+        <p>Built by people who understand equine practice from the inside out.</p>
+        <div class="founders-grid">
+            <div class="founder-card">
+                <div class="founder-avatar">
+                    <img src="annie-headshot.jpg" alt="Annie McAndrew">
                 </div>
-                <div class="founder-card">
-                    <div class="founder-avatar">
-                        <img src="taylor-headshot.jpg" alt="Taylor">
-                    </div>
-                    <h3>Taylor Deakyne</h3>
-                    <p class="founder-role">CEO</p>
-                    <p class="founder-bio">Horse lover<br>Tech Enthusiast<br>Stargazer</p>
-                    <a href="https://www.instagram.com/taylordeakyne/" class="founder-instagram" target="_blank" rel="noopener">
-                        Follow Taylor on <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    </a>
+                <h3>Annie McAndrew</h3>
+                <p class="founder-role">CPO</p>
+                <p class="founder-bio">BSc (Hons) Veterinary Physiotherapist<br>FEI permitted Therapist<br>Advanced INDIBA certified Therapist</p>
+                <a href="https://www.instagram.com/annievetphysio/" class="founder-instagram" target="_blank" rel="noopener">
+                    Follow Annie on <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+            </div>
+            <div class="founder-card">
+                <div class="founder-avatar">
+                    <img src="taylor-headshot.jpg" alt="Taylor">
                 </div>
-                <div class="founder-card">
-                    <div class="founder-avatar">
-                        <img src="nick-headshot.jpg" alt="Nick Rees">
-                    </div>
-                    <h3>Nick Rees</h3>
-                    <p class="founder-role">CTO</p>
-                    <p class="founder-bio">Technologist<br>Cook<br>Sun Seeker</p>
-                    <a href="https://www.instagram.com/gninja24/" class="founder-instagram" target="_blank" rel="noopener">
-                        Follow Nick on <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                    </a>
+                <h3>Taylor Deakyne</h3>
+                <p class="founder-role">CEO</p>
+                <p class="founder-bio">Horse lover<br>Tech Enthusiast<br>Stargazer</p>
+                <a href="https://www.instagram.com/taylordeakyne/" class="founder-instagram" target="_blank" rel="noopener">
+                    Follow Taylor on <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+            </div>
+            <div class="founder-card">
+                <div class="founder-avatar">
+                    <img src="nick-headshot.jpg" alt="Nick Rees">
                 </div>
+                <h3>Nick Rees</h3>
+                <p class="founder-role">CTO</p>
+                <p class="founder-bio">Technologist<br>Cook<br>Sun Seeker</p>
+                <a href="https://www.instagram.com/gninja24/" class="founder-instagram" target="_blank" rel="noopener">
+                    Follow Nick on <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
             </div>
         </div>
+    </section>
 
-        <!-- Challenges -->
+    <!-- Challenges Section -->
+    <section class="challenges-section">
         <h2>Help us tackle the biggest challenges for Equine Practitioners</h2>
         <div class="challenges-grid">
             <div class="challenge-tag"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Scattered client notes</div>
