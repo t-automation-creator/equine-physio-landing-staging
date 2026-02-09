@@ -1584,6 +1584,269 @@
             line-height: 1.4;
         }
 
+        /* Pricing Section */
+        .pricing-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+
+        .billing-toggle {
+            display: inline-flex;
+            background: var(--gray-100);
+            border-radius: 9999px;
+            padding: 4px;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        .billing-btn {
+            padding: 0.6rem 1.5rem;
+            border-radius: 9999px;
+            border: none;
+            background: transparent;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-500);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .billing-btn.active {
+            background: white;
+            color: var(--gray-900);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .save-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #16a34a;
+            background: #dcfce7;
+            padding: 0.15rem 0.5rem;
+            border-radius: 9999px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            align-items: start;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem 1.5rem;
+            border: 1px solid var(--gray-200);
+            text-align: left;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .pricing-card:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #16a34a;
+            box-shadow: 0 8px 30px rgba(22, 163, 74, 0.15);
+        }
+
+        .pricing-card-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .free-badge {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
+        }
+
+        .featured-badge {
+            background: #16a34a;
+            color: white;
+        }
+
+        .coming-badge {
+            background: var(--gray-800);
+            color: white;
+        }
+
+        .pricing-card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .trial-title {
+            color: var(--primary);
+        }
+
+        .featured-title {
+            color: #16a34a;
+        }
+
+        .pricing-card-desc {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin-bottom: 1.25rem;
+        }
+
+        .pricing-amount {
+            display: flex;
+            align-items: baseline;
+            gap: 0.1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .pricing-currency {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            line-height: 1;
+        }
+
+        .custom-price {
+            font-size: 1.75rem;
+        }
+
+        .pricing-interval {
+            font-size: 1rem;
+            color: var(--gray-500);
+            font-weight: 400;
+        }
+
+        .pricing-period {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+            margin-bottom: 1.25rem;
+            min-height: 1.2em;
+        }
+
+        .pricing-practice-desc {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.88rem;
+            color: var(--gray-700);
+            padding: 0.35rem 0;
+        }
+
+        .check-icon {
+            width: 18px;
+            height: 18px;
+            stroke: #16a34a;
+            stroke-width: 2.5;
+            fill: none;
+            flex-shrink: 0;
+        }
+
+        .featured-check {
+            stroke: #16a34a;
+        }
+
+        .muted-check {
+            stroke: var(--gray-400);
+        }
+
+        .pricing-cta-btn {
+            display: block;
+            width: 100%;
+            padding: 0.85rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .trial-btn {
+            background: var(--gray-100);
+            color: var(--gray-500);
+        }
+
+        .trial-btn:hover {
+            background: var(--gray-200);
+            color: var(--gray-700);
+        }
+
+        .featured-btn {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        .featured-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .practice-btn {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .practice-btn:hover {
+            background: rgba(139, 92, 246, 0.05);
+        }
+
+        .pricing-note {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .pricing-region-note {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-top: 0.5rem;
+        }
+
+        .pricing-footer-note {
+            font-size: 0.85rem;
+            color: var(--gray-400);
+            margin-top: 0.5rem;
+        }
+
         /* Trust Strip */
         .trust-strip-section {
             padding: 3rem 2rem;
@@ -1694,6 +1957,12 @@
 
             .flagship-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                margin: 0 auto 2rem;
             }
 
             .trust-strip-container {
@@ -2528,13 +2797,85 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Pricing Section -->
+    <section class="cta-section" id="pricing">
         <h2>Ready to Simplify Your Practice?</h2>
-        <a href="https://app.equinepractitioner.app/signup" class="btn-primary">
-            <span>Sign Up Today</span>
-            <span>→</span>
-        </a>
+        <p class="pricing-subtitle">Start with a free trial, upgrade when you're ready</p>
+
+        <!-- Monthly / Annual Toggle -->
+        <div class="billing-toggle">
+            <button class="billing-btn active" id="monthly-btn" onclick="setBilling('monthly')">Monthly</button>
+            <button class="billing-btn" id="annual-btn" onclick="setBilling('annual')">Annual <span class="save-badge">Save 2 months</span></button>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="pricing-grid">
+            <!-- Free Trial -->
+            <div class="pricing-card">
+                <div class="pricing-card-badge free-badge">7 Days Free</div>
+                <h3 class="pricing-card-title trial-title">Free Trial</h3>
+                <p class="pricing-card-desc">Try everything risk-free</p>
+                <div class="pricing-amount">
+                    <span class="pricing-price">Free</span>
+                </div>
+                <p class="pricing-period">for 7 days</p>
+                <ul class="pricing-features">
+                    <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Full platform access</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited clients &amp; horses</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Invoicing &amp; payments</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> No credit card required</li>
+                </ul>
+                <a href="https://app.equinepractitioner.app/signup" class="pricing-cta-btn trial-btn">Start Free Trial</a>
+            </div>
+
+            <!-- Practitioner -->
+            <div class="pricing-card featured">
+                <div class="pricing-card-badge featured-badge">Full Platform</div>
+                <h3 class="pricing-card-title featured-title">Practitioner</h3>
+                <p class="pricing-card-desc">Everything you need to run your practice</p>
+                <div class="pricing-amount">
+                    <span class="pricing-currency">&pound;</span>
+                    <span class="pricing-price" id="practitioner-price">20</span>
+                    <span class="pricing-interval" id="practitioner-interval">/month</span>
+                </div>
+                <p class="pricing-period" id="practitioner-period">&nbsp;</p>
+                <ul class="pricing-features">
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited clients &amp; horses</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Appointment scheduling</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Treatment recording &amp; clinical notes</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Invoice generation &amp; PDF reports</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Payment tracking</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Practice branding</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Email notifications</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Multi-currency support</li>
+                </ul>
+                <a href="https://app.equinepractitioner.app/signup" class="pricing-cta-btn featured-btn">Get Started</a>
+                <p class="pricing-note">Pricing shown in British Pound based on your location</p>
+            </div>
+
+            <!-- Practice -->
+            <div class="pricing-card">
+                <div class="pricing-card-badge coming-badge">Coming Soon</div>
+                <h3 class="pricing-card-title">Practice</h3>
+                <p class="pricing-card-desc">Multi-practitioner</p>
+                <div class="pricing-amount">
+                    <span class="pricing-price custom-price">Custom Pricing</span>
+                </div>
+                <p class="pricing-period">Contact us for a quote</p>
+                <p class="pricing-practice-desc">For practices with 2 or more practitioners. Team scheduling, shared client records, and practice-wide reporting.</p>
+                <ul class="pricing-features">
+                    <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Everything in Practitioner</li>
+                    <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Multiple practitioner logins</li>
+                    <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Shared database</li>
+                    <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Team calendar</li>
+                    <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Practice-wide reporting</li>
+                </ul>
+                <a href="mailto:hello@equinepractitioner.app?subject=Practice%20Tier%20Enquiry" class="pricing-cta-btn practice-btn">Register Interest</a>
+            </div>
+        </div>
+
+        <p class="pricing-region-note">Showing prices for <strong id="detected-region">United Kingdom</strong></p>
+        <p class="pricing-footer-note">All plans include free updates and secure data backups</p>
     </section>
 
     <!-- Trust Strip Section -->
@@ -2679,6 +3020,88 @@
         setTimeout(() => {
             setInterval(slideToPractitioner, 2500);
         }, 1000);
+
+        // ---- Pricing: Geo-localisation + billing toggle ----
+        const pricingData = {
+            GB: { symbol: '\u00a3', monthly: 20, annual: 200, country: 'United Kingdom', code: 'GBP' },
+            IE: { symbol: '\u20ac', monthly: 25, annual: 250, country: 'Ireland', code: 'EUR' },
+            DE: { symbol: '\u20ac', monthly: 25, annual: 250, country: 'Europe', code: 'EUR' },
+            FR: { symbol: '\u20ac', monthly: 25, annual: 250, country: 'Europe', code: 'EUR' },
+            ES: { symbol: '\u20ac', monthly: 25, annual: 250, country: 'Europe', code: 'EUR' },
+            IT: { symbol: '\u20ac', monthly: 25, annual: 250, country: 'Europe', code: 'EUR' },
+            NL: { symbol: '\u20ac', monthly: 25, annual: 250, country: 'Europe', code: 'EUR' },
+            BE: { symbol: '\u20ac', monthly: 25, annual: 250, country: 'Europe', code: 'EUR' },
+            AT: { symbol: '\u20ac', monthly: 25, annual: 250, country: 'Europe', code: 'EUR' },
+            PT: { symbol: '\u20ac', monthly: 25, annual: 250, country: 'Europe', code: 'EUR' },
+            AU: { symbol: 'A$', monthly: 45, annual: 450, country: 'Australia', code: 'AUD' },
+            NZ: { symbol: 'NZ$', monthly: 48, annual: 480, country: 'New Zealand', code: 'NZD' },
+            CA: { symbol: 'CA$', monthly: 35, annual: 350, country: 'Canada', code: 'CAD' },
+            US: { symbol: '$', monthly: 25, annual: 250, country: 'United States', code: 'USD' },
+            DEFAULT: { symbol: '$', monthly: 25, annual: 250, country: 'your region', code: 'USD' }
+        };
+
+        let currentBilling = 'monthly';
+        let detectedRegion = pricingData.DEFAULT;
+
+        function setBilling(type) {
+            currentBilling = type;
+            document.getElementById('monthly-btn').classList.toggle('active', type === 'monthly');
+            document.getElementById('annual-btn').classList.toggle('active', type === 'annual');
+            updatePricing();
+        }
+
+        function updatePricing() {
+            const r = detectedRegion;
+            const currencyEl = document.querySelector('.pricing-currency');
+            const priceEl = document.getElementById('practitioner-price');
+            const intervalEl = document.getElementById('practitioner-interval');
+            const periodEl = document.getElementById('practitioner-period');
+            const noteEl = document.querySelector('.pricing-note');
+            const saveBadge = document.querySelector('.save-badge');
+
+            if (currencyEl) currencyEl.textContent = r.symbol;
+
+            if (currentBilling === 'monthly') {
+                priceEl.textContent = r.monthly;
+                intervalEl.textContent = '/month';
+                periodEl.innerHTML = '&nbsp;';
+                saveBadge.textContent = 'Save ' + r.symbol + (r.monthly * 2);
+            } else {
+                priceEl.textContent = r.annual;
+                intervalEl.textContent = '/year';
+                periodEl.textContent = r.symbol + Math.round(r.annual / 12) + '/month billed annually';
+                saveBadge.textContent = 'Save ' + r.symbol + (r.monthly * 2);
+            }
+
+            if (noteEl) noteEl.textContent = 'Pricing shown in ' + r.code + ' based on your location';
+
+            var regionEl = document.getElementById('detected-region');
+            if (regionEl) regionEl.textContent = r.country;
+        }
+
+        // Detect region via timezone heuristic
+        function detectRegion() {
+            try {
+                var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+                if (tz.startsWith('Europe/London') || tz.startsWith('Europe/Belfast')) return 'GB';
+                if (tz.startsWith('Europe/Dublin')) return 'IE';
+                if (tz.startsWith('Europe/')) {
+                    // Check for specific Euro countries
+                    var euroTz = ['Europe/Paris','Europe/Berlin','Europe/Madrid','Europe/Rome','Europe/Amsterdam','Europe/Brussels','Europe/Vienna','Europe/Lisbon','Europe/Helsinki','Europe/Athens'];
+                    for (var i = 0; i < euroTz.length; i++) { if (tz.startsWith(euroTz[i])) return 'DE'; }
+                    return 'DE'; // Default Euro for other European timezones
+                }
+                if (tz.startsWith('Australia/')) return 'AU';
+                if (tz.startsWith('Pacific/Auckland') || tz.startsWith('Pacific/Chatham')) return 'NZ';
+                if (tz.startsWith('America/Toronto') || tz.startsWith('America/Vancouver') || tz.startsWith('America/Edmonton') || tz.startsWith('America/Winnipeg') || tz.startsWith('America/Halifax') || tz.startsWith('America/St_Johns')) return 'CA';
+                if (tz.startsWith('America/')) return 'US';
+            } catch (e) {}
+            return 'DEFAULT';
+        }
+
+        var regionCode = detectRegion();
+        detectedRegion = pricingData[regionCode] || pricingData.DEFAULT;
+        updatePricing();
     </script>
 <script src="https://cdn.tinystats.net/scripts/capi.js" async></script>
 </body>
