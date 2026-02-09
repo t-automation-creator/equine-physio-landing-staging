@@ -1635,22 +1635,23 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.5rem;
-            max-width: 1000px;
+            max-width: 960px;
             margin: 0 auto 2rem;
-            align-items: stretch;
+            align-items: start;
+            padding-top: 1rem;
         }
 
         .pricing-card {
             background: white;
             border-radius: 1rem;
-            padding: 0;
-            border: 1px solid var(--gray-200);
+            border: 2px solid var(--gray-200);
             text-align: left;
             position: relative;
             transition: all 0.2s;
             display: flex;
             flex-direction: column;
-            overflow: hidden;
+            padding: 2rem 1.5rem 1.5rem;
+            margin-top: 0.75rem;
         }
 
         .pricing-card:hover {
@@ -1658,35 +1659,34 @@
         }
 
         .pricing-card.featured {
-            border: 2px solid #16a34a;
-            box-shadow: 0 8px 30px rgba(22, 163, 74, 0.15);
+            border-color: #16a34a;
+            box-shadow: 0 8px 30px rgba(22, 163, 74, 0.12);
+            transform: scale(1.02);
+            z-index: 1;
         }
 
-        .pricing-card-top {
-            padding: 1.75rem 1.75rem 1.25rem;
-            border-bottom: 1px solid var(--gray-100);
-            min-height: 220px;
-            display: flex;
-            flex-direction: column;
+        .pricing-card.featured:hover {
+            box-shadow: 0 12px 35px rgba(22, 163, 74, 0.18);
         }
 
-        .pricing-card-bottom {
-            padding: 1.25rem 1.75rem 1.75rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+        .pricing-card.muted-card {
+            background: var(--gray-50);
+            border-color: var(--gray-200);
         }
 
+        /* Badge - absolutely positioned, overlapping the card border */
         .pricing-card-badge {
-            display: inline-block;
+            position: absolute;
+            top: -0.75rem;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 0.7rem;
             font-weight: 700;
-            padding: 0.3rem 0.75rem;
+            padding: 0.3rem 0.9rem;
             border-radius: 9999px;
-            margin-bottom: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.02em;
-            width: fit-content;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
         }
 
         .free-badge {
@@ -1700,8 +1700,13 @@
         }
 
         .coming-badge {
-            background: var(--gray-800);
+            background: var(--gray-700);
             color: white;
+        }
+
+        /* Card header area */
+        .pricing-card-header {
+            margin-bottom: 1.25rem;
         }
 
         .pricing-card-title {
@@ -1722,7 +1727,12 @@
         .pricing-card-desc {
             font-size: 0.85rem;
             color: var(--gray-500);
-            margin-bottom: 1.25rem;
+            margin: 0;
+        }
+
+        /* Price display */
+        .pricing-amount-block {
+            margin-bottom: 1.5rem;
         }
 
         .pricing-amount {
@@ -1757,18 +1767,18 @@
 
         .pricing-period {
             font-size: 0.8rem;
-            color: var(--gray-400);
-            margin-bottom: 1.25rem;
+            color: #16a34a;
+            font-weight: 500;
             min-height: 1.2em;
+            margin: 0;
         }
 
-        .pricing-practice-desc {
-            font-size: 0.85rem;
-            color: var(--gray-500);
-            line-height: 1.5;
-            margin-bottom: 1.25rem;
+        .pricing-period-muted {
+            color: var(--gray-400);
+            font-weight: 400;
         }
 
+        /* Features list */
         .pricing-features {
             list-style: none;
             padding: 0;
@@ -1780,10 +1790,10 @@
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
-            font-size: 0.88rem;
-            color: var(--gray-700);
-            padding: 0.4rem 0;
-            line-height: 1.35;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            padding: 0.35rem 0;
+            line-height: 1.4;
         }
 
         .check-icon {
@@ -1805,11 +1815,16 @@
             stroke: var(--gray-400);
         }
 
+        .muted-feature {
+            color: var(--gray-400);
+        }
+
+        /* CTA buttons */
         .pricing-cta-btn {
             display: block;
             width: 100%;
             padding: 0.85rem;
-            border-radius: 0.75rem;
+            border-radius: 9999px;
             text-align: center;
             margin-top: auto;
             font-size: 0.95rem;
@@ -1819,16 +1834,18 @@
             cursor: pointer;
             border: none;
             font-family: inherit;
+            box-sizing: border-box;
         }
 
         .trial-btn {
             background: var(--gray-100);
-            color: var(--gray-500);
+            color: var(--gray-600);
+            border: 1px solid var(--gray-200);
         }
 
         .trial-btn:hover {
             background: var(--gray-200);
-            color: var(--gray-700);
+            color: var(--gray-800);
         }
 
         .featured-btn {
@@ -1986,8 +2003,12 @@
 
             .pricing-grid {
                 grid-template-columns: 1fr;
-                max-width: 480px;
+                max-width: 400px;
                 margin: 0 auto 2rem;
+            }
+
+            .pricing-card.featured {
+                transform: none;
             }
 
             .trust-strip-container {
@@ -2837,32 +2858,34 @@
         <div class="pricing-grid">
             <!-- Free Trial -->
             <div class="pricing-card">
-                <div class="pricing-card-top">
-                    <div class="pricing-card-badge free-badge">7 Days Free</div>
+                <div class="pricing-card-badge free-badge">7 Days Free</div>
+                <div class="pricing-card-header">
                     <h3 class="pricing-card-title trial-title">Free Trial</h3>
                     <p class="pricing-card-desc">Try everything risk-free</p>
+                </div>
+                <div class="pricing-amount-block">
                     <div class="pricing-amount">
                         <span class="pricing-price">Free</span>
                     </div>
-                    <p class="pricing-period">for 7 days</p>
+                    <p class="pricing-period pricing-period-muted">for 7 days</p>
                 </div>
-                <div class="pricing-card-bottom">
-                    <ul class="pricing-features">
-                        <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Full platform access</li>
-                        <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited clients &amp; horses</li>
-                        <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Invoicing &amp; payments</li>
-                        <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> No credit card required</li>
-                    </ul>
-                    <a href="https://app.equinepractitioner.app/signup" class="pricing-cta-btn trial-btn">Start Free Trial</a>
-                </div>
+                <ul class="pricing-features">
+                    <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Full platform access</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited clients &amp; horses</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Invoicing &amp; payments</li>
+                    <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> No credit card required</li>
+                </ul>
+                <a href="https://app.equinepractitioner.app/signup" class="pricing-cta-btn trial-btn">Start Free Trial</a>
             </div>
 
-            <!-- Practitioner -->
+            <!-- Practitioner (Featured) -->
             <div class="pricing-card featured">
-                <div class="pricing-card-top">
-                    <div class="pricing-card-badge featured-badge">Full Platform</div>
+                <div class="pricing-card-badge featured-badge">Full Platform</div>
+                <div class="pricing-card-header">
                     <h3 class="pricing-card-title featured-title">Practitioner</h3>
                     <p class="pricing-card-desc">Everything you need to run your practice</p>
+                </div>
+                <div class="pricing-amount-block">
                     <div class="pricing-amount">
                         <span class="pricing-currency">&pound;</span>
                         <span class="pricing-price" id="practitioner-price">20</span>
@@ -2870,41 +2893,39 @@
                     </div>
                     <p class="pricing-period" id="practitioner-period">&nbsp;</p>
                 </div>
-                <div class="pricing-card-bottom">
-                    <ul class="pricing-features">
-                        <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited clients &amp; horses</li>
-                        <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Appointment scheduling</li>
-                        <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Clinical notes &amp; reports</li>
-                        <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Invoicing &amp; payments</li>
-                        <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Practice branding</li>
-                        <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Multi-currency support</li>
-                    </ul>
-                    <a href="https://app.equinepractitioner.app/signup" class="pricing-cta-btn featured-btn">Get Started</a>
-                    <p class="pricing-note" id="pricing-note-text">Pricing shown in GBP based on your location</p>
-                </div>
+                <ul class="pricing-features">
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited clients &amp; horses</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Appointment scheduling</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Clinical notes &amp; reports</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Invoicing &amp; payments</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Practice branding</li>
+                    <li><svg class="check-icon featured-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Multi-currency support</li>
+                </ul>
+                <a href="https://app.equinepractitioner.app/signup" class="pricing-cta-btn featured-btn">Get Started</a>
+                <p class="pricing-note" id="pricing-note-text">Pricing shown in GBP based on your location</p>
             </div>
 
-            <!-- Practice -->
-            <div class="pricing-card">
-                <div class="pricing-card-top">
-                    <div class="pricing-card-badge coming-badge">Coming Soon</div>
+            <!-- Practice (Coming Soon) -->
+            <div class="pricing-card muted-card">
+                <div class="pricing-card-badge coming-badge">Coming Soon</div>
+                <div class="pricing-card-header">
                     <h3 class="pricing-card-title">Practice</h3>
-                    <p class="pricing-card-desc">Multi-practitioner</p>
+                    <p class="pricing-card-desc">Multi-practitioner teams</p>
+                </div>
+                <div class="pricing-amount-block">
                     <div class="pricing-amount">
                         <span class="pricing-price custom-price">Custom</span>
                     </div>
-                    <p class="pricing-period">Contact us for a quote</p>
+                    <p class="pricing-period pricing-period-muted">Contact us for a quote</p>
                 </div>
-                <div class="pricing-card-bottom">
-                    <ul class="pricing-features">
-                        <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Everything in Practitioner</li>
-                        <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Multiple practitioner logins</li>
-                        <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Shared database</li>
-                        <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Team calendar</li>
-                        <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Practice-wide reporting</li>
-                    </ul>
-                    <a href="mailto:hello@equinepractitioner.app?subject=Practice%20Tier%20Enquiry" class="pricing-cta-btn practice-btn">Register Interest</a>
-                </div>
+                <ul class="pricing-features">
+                    <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span class="muted-feature">Everything in Practitioner</span></li>
+                    <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span class="muted-feature">Multiple practitioner logins</span></li>
+                    <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span class="muted-feature">Shared client database</span></li>
+                    <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span class="muted-feature">Team calendar</span></li>
+                    <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span class="muted-feature">Practice-wide reporting</span></li>
+                </ul>
+                <a href="mailto:hello@equinepractitioner.app?subject=Practice%20Tier%20Enquiry" class="pricing-cta-btn practice-btn">Register Interest</a>
             </div>
         </div>
 
