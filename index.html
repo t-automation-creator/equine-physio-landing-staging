@@ -1705,6 +1705,7 @@
 
         /* Card header area */
         .pricing-card-header {
+            min-height: 3.5rem;
             margin-bottom: 1.25rem;
         }
 
@@ -1732,6 +1733,7 @@
         /* Price display */
         .pricing-amount-block {
             margin-bottom: 1.5rem;
+            min-height: 4rem;
         }
 
         .pricing-amount {
@@ -1793,6 +1795,10 @@
             color: var(--gray-600);
             padding: 0.35rem 0;
             line-height: 1.4;
+        }
+
+        .pricing-spacer {
+            visibility: hidden;
         }
 
         .check-icon {
@@ -2873,6 +2879,8 @@
                     <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Unlimited clients &amp; horses</li>
                     <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Invoicing &amp; payments</li>
                     <li><svg class="check-icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> No credit card required</li>
+                    <li class="pricing-spacer">&nbsp;</li>
+                    <li class="pricing-spacer">&nbsp;</li>
                 </ul>
                 <a href="https://app.equinepractitioner.app/signup" class="pricing-cta-btn trial-btn">Start Free Trial</a>
             </div>
@@ -2923,6 +2931,7 @@
                     <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span class="muted-feature">Shared client database</span></li>
                     <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span class="muted-feature">Team calendar</span></li>
                     <li><svg class="check-icon muted-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span class="muted-feature">Practice-wide reporting</span></li>
+                    <li class="pricing-spacer">&nbsp;</li>
                 </ul>
                 <a href="mailto:hello@equinepractitioner.app?subject=Practice%20Tier%20Enquiry" class="pricing-cta-btn practice-btn">Register Interest</a>
             </div>
