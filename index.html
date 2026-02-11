@@ -1648,8 +1648,8 @@
             text-align: left;
             position: relative;
             transition: all 0.2s;
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-rows: auto auto 1fr auto;
             padding: 2rem 1.5rem 1.5rem;
             margin-top: 0.75rem;
         }
@@ -1705,8 +1705,7 @@
 
         /* Card header area */
         .pricing-card-header {
-            min-height: 3.5rem;
-            margin-bottom: 1.25rem;
+            height: 3.5rem;
         }
 
         .pricing-card-title {
@@ -1732,8 +1731,7 @@
 
         /* Price display */
         .pricing-amount-block {
-            margin-bottom: 1.5rem;
-            min-height: 4.5rem;
+            height: 5rem;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -1787,7 +1785,7 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            flex: 1 1 auto;
+            align-self: start;
         }
 
         .pricing-features li {
@@ -1830,7 +1828,7 @@
             padding: 0.85rem;
             border-radius: 9999px;
             text-align: center;
-            margin-top: auto;
+            align-self: end;
             font-size: 0.95rem;
             font-weight: 600;
             text-decoration: none;
