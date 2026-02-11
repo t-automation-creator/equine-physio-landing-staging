@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equine Practitioner - Early Access</title>
-    
+    <link rel="icon" type="image/png" href="horse-logo.png">
+
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://equinepractitioner.app/">
@@ -3037,18 +3038,19 @@
         const flipText = document.getElementById('flip-text');
 
         function flipToNextWord() {
+            if (!flipText) return;
             // Flip out current word
             flipText.classList.add('flip-out');
-            
+
             setTimeout(() => {
                 // Change the word
                 currentIndex = (currentIndex + 1) % flipWords.length;
                 flipText.textContent = flipWords[currentIndex];
-                
+
                 // Remove flip-out, add flip-in
                 flipText.classList.remove('flip-out');
                 flipText.classList.add('flip-in');
-                
+
                 setTimeout(() => {
                     flipText.classList.remove('flip-in');
                 }, 300);
@@ -3056,7 +3058,7 @@
         }
 
         // Start the flip animation cycle
-        setInterval(flipToNextWord, 2000);
+        if (flipText) setInterval(flipToNextWord, 2000);
 
         // Practitioner type slide animation
         const practitionerTypes = ['veterinarians', 'dentists', 'physiotherapists', 'chiropractors', 'osteopaths', 'sports therapists', 'massage therapists', 'farriers', 'podiatrists', 'acupuncturists', 'hydrotherapists', 'laser therapists'];
